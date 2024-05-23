@@ -1,5 +1,6 @@
 import React from "react";
 import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDate";
 
 // 부모 컴포넌트(App.js)로부터 전달 받은 데이터 props,
 // ExpenseItem 컴포넌트를 호출한 곳 --> App.js: 부모 컴포넌트
@@ -23,6 +24,7 @@ const ExpenseItem = ({ title, price: p, date }) => {
   };
 
   // 한자리 수를 두자리로 변환해주는 함수
+  /** ExpenseDate 컴포넌트를 만들면서 날짜 관련 함수는 필요 없어짐
   function make2digit(text) {
     // padStart(2, '0'): 앞에다(Start) 붙이는데(pad) 기준은 2자리,
     // 2자리가 안되면 '0'을 붙인다.
@@ -39,6 +41,7 @@ const ExpenseItem = ({ title, price: p, date }) => {
 
     return `${year}년 ${make2digit(month)}월 ${make2digit(day)}일`;
   };
+  */
 
   // 숫자를 화표 표기법으로 바꾸기
   const formattedPrice = new Intl.NumberFormat(
@@ -51,7 +54,8 @@ const ExpenseItem = ({ title, price: p, date }) => {
 
   return (
     <div className="expense-item">
-      <div>{makeFormattedDate()}</div>
+      {/* <div>{makeFormattedDate()}</div> --> ExpenseDate 컴포넌트로 생성*/}
+      <ExpenseDate date={date} />
       <div className="expense-item__description">
         <h2>{title}</h2>
         <div className="expense-item__price">{formattedPrice}원</div>

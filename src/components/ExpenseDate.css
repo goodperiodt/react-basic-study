@@ -1,0 +1,34 @@
+.expense-date {
+  display: flex;
+  flex-direction: column;
+  /* flex 설정 후, flex-direction을 column으로 설정할 경우 div의 경우 층 형식으로 배치된다.*/
+
+  border: 1px solid white;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+
+  width: 5.5rem;
+  height: 5.5rem;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.expense-date div {
+  margin-bottom: 0.25rem;
+}
+
+.expense-date__month {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.expense-date__year {
+  font-size: 0.75rem;
+}
+
+.expense-date__day {
+  font-weight: 700;
+  font-size: 1.75rem;
+}
