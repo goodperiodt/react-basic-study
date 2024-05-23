@@ -1,6 +1,7 @@
 import React from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
+import Card from "./ui/Card";
 
 // 부모 컴포넌트(App.js)로부터 전달 받은 데이터 props,
 // ExpenseItem 컴포넌트를 호출한 곳 --> App.js: 부모 컴포넌트
@@ -13,7 +14,8 @@ const ExpenseItem = ({ title, price: p, date }) => {
   // ** price(key) 변수를 다른 변수명으로 사용하고 싶다면,
   // price: p 이렇게 선언 후 함수 안에서 p라는 변수명으로 price값을 꺼내서 쓸 것
 
-  console.log("props: ", title, p, date);
+  // console.log("props: ", title, p, date);
+
   // date는 객체로 전달된다: Sat Jun 01 2024 00:00:00 GMT+0900 (한국 표준시)
   // 객체를 화면에서 바로 보여줄 수 없기에 객체를 문자열로 바꾸는 함수를 선언해준다.
 
@@ -53,14 +55,18 @@ const ExpenseItem = ({ title, price: p, date }) => {
   ).format(p);
 
   return (
-    <div className="expense-item">
-      {/* <div>{makeFormattedDate()}</div> --> ExpenseDate 컴포넌트로 생성*/}
-      <ExpenseDate date={date} />
-      <div className="expense-item__description">
-        <h2>{title}</h2>
-        <div className="expense-item__price">{formattedPrice}원</div>
+    // Card 컴포넌트가 받게될 클래스명은 "circle" 이다.
+    <Card className="circle">
+      {/* Card 컴포넌트가 전달받게될 props.children은 아래부터 </Card> 닫힌 태그 전까지 모든 구조다. */}
+      <div className="expense-item">
+        {/* <div>{makeFormattedDate()}</div> --> ExpenseDate 컴포넌트로 생성*/}
+        <ExpenseDate date={date} />
+        <div className="expense-item__description">
+          <h2>{title}</h2>
+          <div className="expense-item__price">{formattedPrice}원</div>
+        </div>
       </div>
-    </div>
+    </Card>
   );
 };
 
