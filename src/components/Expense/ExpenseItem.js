@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseItem.css";
+import Card from "../ui/Card";
 import ExpenseDate from "./ExpenseDate";
-import Card from "./ui/Card";
 
 // 부모 컴포넌트(App.js)로부터 전달 받은 데이터 props,
 // ExpenseItem 컴포넌트를 호출한 곳 --> App.js: 부모 컴포넌트

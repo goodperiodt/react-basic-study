@@ -1,6 +1,6 @@
 import "./App.css";
-import Hello from "./Hello";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expense/Expenses";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 function App() {
   // 지출 항목 객체 배열
@@ -12,14 +12,8 @@ function App() {
 
   return (
     <>
+      <NewExpense />
       <Expenses items={expenses} />
-      <Hello>
-        <ul>
-          <li>사과</li>
-          <li>복숭아</li>
-          <li>포도</li>
-        </ul>
-      </Hello>
     </>
   );
 }
