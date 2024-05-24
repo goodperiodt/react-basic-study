@@ -6,9 +6,10 @@ import NewExpense from "./components/NewExpense/NewExpense.js";
 function App() {
   // 지출 항목 객체 배열
   const expenses = [
-    { title: "피자헛", price: 30000, date: new Date(2024, 5, 1) },
-    { title: "bbq치킨", price: 20000, date: new Date(2024, 5, 2) },
-    { title: "짜장면", price: 10000, date: new Date(2024, 5, 3) },
+    { id: 1, title: "피자헛", price: 30000, date: new Date(2024, 5, 1) },
+    { id: 2, title: "bbq치킨", price: 20000, date: new Date(2024, 5, 2) },
+    { id: 3, title: "짜장면", price: 10000, date: new Date(2024, 5, 3) },
+    { id: 4, title: "엽기떡볶이", price: 18000, date: new Date(2024, 5, 4) },
   ];
 
   // ExpenseForm에게 내려보낼 함수
@@ -18,6 +19,8 @@ function App() {
   const addExpenseHandler = (newExpense) => {
     console.log("App 컴포넌트에서 응답함!");
     console.log("newExpense: ", newExpense);
+    // 자식 컴포넌트로부터 전달받은 데이터를 배열에 추가하는 것은 쉽다.
+    expenses.push(newExpense);
   };
 
   return (
