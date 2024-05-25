@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = ({ onSaveExpense }) => {
+const ExpenseForm = ({ onSaveExpense, onToggle }) => {
   const [userInput, setUserInput] = useState({
     title: "",
     price: "",
@@ -68,6 +68,10 @@ const ExpenseForm = ({ onSaveExpense }) => {
     });
   };
 
+  // 부모가 props로 보내준 onToggle이라는 함수를 호출하면
+  // 부모쪽에 있는 함수가 호출되면서 부모가 관리하고 있는 상태변수의 값이 false로 변하고, 리액트는 해당 상태변화를 감지하고, form을 다시 숨겨줄 것이다.
+  const cancelInsertHandler = () => onToggle();
+
   return (
     // react와 스프링부트는 완전히 분리되어 있고,
     // 리액트는 Single Page Application 이라 뭐든 요청이 fetch를 통해서 비동기 방식으로 전달된다. 그래서 form action="" 속성이 필요 없다.
@@ -110,6 +114,9 @@ const ExpenseForm = ({ onSaveExpense }) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={cancelInsertHandler}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

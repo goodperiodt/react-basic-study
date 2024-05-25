@@ -3,6 +3,7 @@ import "./Expenses.css";
 import ExpenseItem from "./ExpenseItem";
 import ExpenseFilter from "./ExpenseFilter";
 import Card from "../ui/Card";
+import ExpenseChart from "./ExpenseChart";
 
 const Expenses = ({ items }) => {
   const [filteredYear, setFilteredYear] = useState(
@@ -56,8 +57,11 @@ const Expenses = ({ items }) => {
 
   return (
     <Card className="expenses">
+      {/* 연도를 선택하는 select창 */}
       <ExpenseFilter onChangeFilter={filterChangeHandler} />
+      <ExpenseChart />
       {/* 지출 내역 여러 개를 갖고 있는 items(배열)가 있다. */}
+      {/* 사용자가 선택한(filter) 연도에 따라 expense item들이 반복문에 의해 여러 개가 나온다. */}
       {expenseContent}
     </Card>
   );
