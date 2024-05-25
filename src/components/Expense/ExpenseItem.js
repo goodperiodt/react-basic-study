@@ -11,6 +11,14 @@ import ExpenseDate from "./ExpenseDate";
 // 자식 컴포넌트(ExpenseItem.js)에서 ExpenseItem() 함수의 매개 값으로 props(객체, {title})를 전달받고,
 // 전달받은 객체가 ExpenseItem() 함수 내부에 사용되는 것
 const ExpenseItem = ({ title, price: p, date }) => {
+  console.log("date", date);
+  console.log("typeof date.getFullYear(): ", typeof date.getFullYear());
+  console.log("date.getFullYear(): ", date.getFullYear());
+  console.log("date.getFullYear().toString(): ", date.getFullYear().toString());
+  console.log(
+    "typeof date.getFullYear().toString(): ",
+    typeof date.getFullYear().toString()
+  );
   // ** price(key) 변수를 다른 변수명으로 사용하고 싶다면,
   // price: p 이렇게 선언 후 함수 안에서 p라는 변수명으로 price값을 꺼내서 쓸 것
 

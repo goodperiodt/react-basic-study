@@ -51,7 +51,14 @@ const ExpenseForm = ({ onSaveExpense }) => {
   const formSubmitHandler = (e) => {
     e.preventDefault(); // submit을 차단
 
-    onSaveExpense(userInput); // App.js가 내려준 함수를 호출하면서 올리고자 하는 데이터를 매개 값으로 전달
+    // 새로운 지출 내역을 객체로 선언
+    const newExpense = {
+      title: userInput.title,
+      price: userInput.price,
+      date: new Date(userInput.date),
+    };
+
+    onSaveExpense(newExpense); // App.js가 내려준 함수를 호출하면서 올리고자 하는 데이터를 매개 값으로 전달
 
     // 입력창을 리셋하기
     setUserInput({

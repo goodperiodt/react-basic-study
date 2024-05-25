@@ -34,22 +34,31 @@ const Expenses = ({ items }) => {
     setFilteredYear(selectedYear);
   };
 
+  const filteredItems = items.filter(
+    (item) => item.date.getFullYear().toString() === filteredYear
+  );
+
+  console.log(filteredItems);
+
+  // 조건부 렌더링을 위한 변수
+  let expenseContent = <p>아직 등록된 지출이 없습니다.</p>;
+
+  if (filteredItems.length > 0) {
+    expenseContent = filteredItems.map((item) => (
+      <ExpenseItem
+        key={item.id}
+        title={item.title}
+        price={item.price}
+        date={item.date}
+      />
+    ));
+  }
+
   return (
     <Card className="expenses">
       <ExpenseFilter onChangeFilter={filterChangeHandler} />
       {/* 지출 내역 여러 개를 갖고 있는 items(배열)가 있다. */}
-      {items
-        .filter((item) => item.date.getFullYear().toString() === filteredYear)
-        .map((item) => {
-          return (
-            <ExpenseItem
-              key={item.id} // key값은 DB연동시 primary key로 처리한다.
-              title={item.title}
-              price={item.price}
-              date={item.date}
-            />
-          );
-        })}
+      {expenseContent}
     </Card>
   );
 };
