@@ -6,10 +6,15 @@ import NewExpense from "./components/NewExpense/NewExpense.js";
 function App() {
   // 지출 항목 객체 배열
   const expenses = [
-    { id: 1, title: "피자헛", price: 30000, date: new Date(2024, 5, 1) },
-    { id: 2, title: "bbq치킨", price: 20000, date: new Date(2024, 5, 2) },
-    { id: 3, title: "짜장면", price: 10000, date: new Date(2024, 5, 3) },
-    { id: 4, title: "엽기떡볶이", price: 18000, date: new Date(2024, 5, 4) },
+    { id: 1, title: "피자헛", price: 30000, date: new Date(2024, 5 - 1, 1) },
+    { id: 2, title: "bbq치킨", price: 20000, date: new Date(2024, 5 - 1, 2) },
+    { id: 3, title: "짜장면", price: 10000, date: new Date(2024, 5 - 1, 3) },
+    {
+      id: 4,
+      title: "엽기떡볶이",
+      price: 18000,
+      date: new Date(2024, 5 - 1, 4),
+    },
   ];
 
   // 지출 객체배열을 상태변수로 관리

@@ -31,13 +31,14 @@ const Expenses = ({ items }) => {
   // 자식 컴포넌트 ExpenseFilter에 있는 선택 연도 데이터를 반환해주는 함수다.
 
   const filterChangeHandler = (selectedYear) => {
-    console.log("Expenses.js", selectedYear);
+    // console.log('Expenses: ', selectedYear);
     setFilteredYear(selectedYear);
   };
 
-  const filteredItems = items.filter(
-    (item) => item.date.getFullYear().toString() === filteredYear
-  );
+  const filteredItems = items.filter((item) => {
+    console.log(item);
+    return item.date.getFullYear().toString() === filteredYear;
+  });
 
   console.log(filteredItems);
 
@@ -59,7 +60,8 @@ const Expenses = ({ items }) => {
     <Card className="expenses">
       {/* 연도를 선택하는 select창 */}
       <ExpenseFilter onChangeFilter={filterChangeHandler} />
-      <ExpenseChart />
+      {/* 연도별로 필터링된 배열을 ExpenseChart 컴포넌트에 전달 */}
+      <ExpenseChart expenses={filteredItems} />
       {/* 지출 내역 여러 개를 갖고 있는 items(배열)가 있다. */}
       {/* 사용자가 선택한(filter) 연도에 따라 expense item들이 반복문에 의해 여러 개가 나온다. */}
       {expenseContent}

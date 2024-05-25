@@ -54,7 +54,7 @@ const ExpenseForm = ({ onSaveExpense, onToggle }) => {
     // 새로운 지출 내역을 객체로 선언
     const newExpense = {
       title: userInput.title,
-      price: userInput.price,
+      price: +userInput.price,
       date: new Date(userInput.date),
     };
 
