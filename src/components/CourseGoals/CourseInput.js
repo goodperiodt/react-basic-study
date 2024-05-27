@@ -34,25 +34,13 @@ const CourseInput = ({ onAdd }) => {
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div className="form-control">
+      {/* 기본적으로 갖는 클래스명(form-control)
+      만약 isValid의 값이 false라면 클래스명에 invalid 를 붙인다. */}
+      <div className={`form-control ${!isValid ? "invalid" : ""}`}>
         <label>나의 목표</label>
         {/* input태그에 무언가를 작성할 때마다 (onChange),
         사용자가 입력한 이 목표 값을 app.js로 끌어올려야 한다. */}
-        <input
-          style={{
-            // input 요소에 입력할 때마다 입력 값 검증이 실행되고,
-            // 검증시 값이 유효하다면, isValid의 값은 true,
-            // 유효하지 않다면, isValid의 값은 false,
-            // isValid의 값이 true라면 input태그의 background 색깔을 'transparent'로
-            // false라면 salmon으로 변하게 한다.
-            // 동적으로 style을 적용하기
-            background: isValid ? "transparent" : "salmon",
-            borderColor: isValid ? "black" : "red",
-          }}
-          type="text"
-          onChange={textChangeHandler}
-          value={enteredText}
-        />
+        <input type="text" onChange={textChangeHandler} value={enteredText} />
       </div>
       <Button type="submit">목표 추가하기</Button>
     </form>

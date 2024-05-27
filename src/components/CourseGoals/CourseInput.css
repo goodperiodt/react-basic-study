@@ -21,3 +21,14 @@
   background: #fad0ec;
   border-color: #8b005d;
 }
+
+/* 입력 값 유효성을 검증하는 상태변수에 따라
+클래스명(invalid)의 추가 여부를 결정할 것 */
+.form-control.invalid input {
+  border-color: red;
+  background-color: #ffd7d7;
+}
+
+.form-control.invalid label {
+  color: red;
+}
