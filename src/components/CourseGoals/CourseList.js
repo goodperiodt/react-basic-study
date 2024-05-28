@@ -3,6 +3,9 @@ import React from "react";
 import CourseItem from "./CourseItem";
 import styled from "styled-components";
 
+// 간단한 ul 하나를 만들고, 만들 ul에 디자인 주고 싶을 때,
+// styled-components 라이브러리를 사용해서
+// 스타일 전용 컴포넌트를 만드는 것이 좋다.
 const CourseUl = styled.ul`
   list-style: none;
   margin: 0;
