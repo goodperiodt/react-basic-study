@@ -3,7 +3,8 @@ import styles from "./ErrorModal.module.css";
 import Card from "../Card";
 import Button from "../Button/Button";
 // portal 기능을 사용하기 위한 import
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
+import Portal from "./Portal/Portal";
 
 const BackDrop = ({ onConfirm }) => {
   return <div className={styles.backdrop} onClick={onConfirm} />;
@@ -36,14 +37,26 @@ const ErrorModal = ({ title, message, onConfirm }) => {
 
       {/* ReactDOM.createPortal() 함수로 portal을 생성하고,
       컴포넌트와 해당 컴포넌트가 구현될 요소를 작성해준다.  */}
-      {ReactDOM.createPortal(
+
+      {/* {ReactDOM.createPortal(
         <BackDrop onConfirm={onConfirm} />,
         document.getElementById("backdrop-root")
       )}
       {ReactDOM.createPortal(
         <ModalOverlay title={title} message={message} onConfirm={onConfirm} />,
         document.getElementById("overlay-root")
-      )}
+      )} */}
+      {
+        <Portal destId={"backdrop-root"}>
+          <BackDrop onConfirm={onConfirm} />
+        </Portal>
+      }
+
+      {
+        <Portal destId={"overlay-root"}>
+          <ModalOverlay title={title} message={message} onConfirm={onConfirm} />
+        </Portal>
+      }
     </>
   );
 };
