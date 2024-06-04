@@ -1,6 +1,6 @@
 import React from "react";
 // import styled from "styled-components";
-import "./Button.css";
+import styles from "./Button.module.css";
 
 // 'styled-components' 라이브러리에서 제공되는 객체 styled 사용하기
 // 객체 styled를 통해 button을 만들겠다. ``백틱안에 css를 작성하면된다.
@@ -39,9 +39,14 @@ const Button = styled.button`
 // Button 컴포넌트를 구성한 이유: 버튼의 크기, 버튼에 작성된 텍스트 등의 디자인이 같아야 하는 경우,
 // 해당 컴포넌트에 동일한 디자인을 주기 위해 이와 같이 작성한다.
 
-const Button = ({ type, onClick, children }) => {
+const Button = ({ type, onClick, children, className, disabled }) => {
   return (
-    <button type={type} onClick={onClick} className="button">
+    <button
+      type={type}
+      onClick={onClick}
+      className={`${styles.button} ${className}`}
+      disabled={disabled}
+    >
       {children}
     </button>
   );
