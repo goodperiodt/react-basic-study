@@ -40,10 +40,15 @@ const App = () => {
     // 상태변수(isLoggedIn)에 변화가 있다면 리액트는 다시 렌더링을 한다.
     setIsLoggedIn(true);
   };
+
+  const logoutHandler = () => {
+    localStorage.removeItem("login-flag");
+    setIsLoggedIn(false);
+  };
   console.log("App 컴포넌트의 끝");
   return (
     <>
-      <MainHeader />
+      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
       {/* 사용자가 login을 성공하면 Home.js를 보여주고,
       login을 성공하기전까지 Login 컴포넌트를 보여준다. */}
       <main>
